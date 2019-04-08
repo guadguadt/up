@@ -192,7 +192,8 @@
         document.getElementById("ooBack").style.display = "none";
         document.getElementById("ooQuit").style.display = "none";
         document.getElementById("ooUser").style.display = "none";
-        return;
+        if (document.getElementById("ooBody").innerHTML!="") return;
+        else search="ogHome";
       }
       else if (search.indexOf("ooShow")==0) {
         document.getElementById("ooShow").style.display = "block";
@@ -464,7 +465,7 @@
 
     function JoinB2(search, sHosts, iHosts, aHosts, cHosts) {
       jQuery.ajax({
-        url: sHosts[iHosts] + "oo.aspx?name=get_oosign&sign=" + Encrypt(ooMyip+"ghuabhmwygcd"),
+        url: sHosts[iHosts] + "oo.aspx?name=get_oosign&sign=" + Encrypt(ooMyip+"hkhsxyhtdpuo"),
         dataType: "text",
         timeout: 8000,
       })    
