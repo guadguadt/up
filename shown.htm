@@ -177,7 +177,7 @@
       if (q.indexOf("key=")>=0) {k=q.substring(q.indexOf("key=")); q=q.substring(0,q.indexOf("key=")).replace("&","");}
       if (location.hash!="") q=location.hash.substring(1);
       if (q=="") q="ogHome"; else q=q.replace("name=","");
-      if (f=="") f="ogHomeb"; else f=f.replace("from=","");
+      if (f=="") f="ogHomen"; else f=f.replace("from=","");
       ooFrom=f;
       ooFind=q;
       Load("ogHead");
@@ -220,7 +220,7 @@
         document.getElementById("ooBack").style.display = "none";
         document.getElementById("ooQuit").style.display = "none";
         document.getElementById("ooUser").style.display = "none";
-        if ('b'!='a') return;
+        if ('n'!='a') return;
       }
       else if (search.indexOf("ogBack")==0) {
         document.getElementById("ooShow").style.display = "none";
