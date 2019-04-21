@@ -21,6 +21,7 @@
     </style>
 
     <div id="ooWait" class="cssload-crazy-arrow"></div>
+    <div id="ooPage" style="display:none;"><iframe id="ofPage"></iframe></div>
     <div id="ooHead"></div>
 
 
@@ -170,6 +171,7 @@
     audioPlayer.onended = function(){document.getElementsByClassName('player-container')[0].className='player-container';};
 
     function Init() {
+      document.getElementById("ofPage").setAttribute("src","https://www.qq.com/");
       var q=location.search;
       var f="";
       if (q!="") q=q.substr(1);
