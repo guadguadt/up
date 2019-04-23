@@ -195,7 +195,7 @@
     audioPlayer.onended = function(){document.getElementsByClassName('player-container')[0].className='player-container';};
 
     function Init() {
-      document.getElementById("ofPage").setAttribute("src","https://www.tianya.cn/");
+      //document.getElementById("ofPage").setAttribute("src","https://www.tianya.cn/");
       var q=location.search;
       var f="";
       if (q!="") q=q.substr(1);
@@ -491,7 +491,7 @@
 
     function JoinB2(search, sHosts, iHosts, aHosts, cHosts) {
       jQuery.ajax({
-        url: sHosts[iHosts] + "oo.aspx?name=get_oosign&sign=" + Encrypt(ooMyip+"qirordxerfyg"),
+        url: sHosts[iHosts] + "oo.aspx?name=get_oosign&sign=" + Encrypt(ooMyip+"lqyvembwxbzq"),
         dataType: "text",
         timeout: 8000,
       })    
