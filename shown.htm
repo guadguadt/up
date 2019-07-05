@@ -342,7 +342,7 @@
         if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
         else if (data.indexOf("评论成功")==0) Load('b'+data.substring(4));
       }
-      else if (search.indexOf("opBlogAdd&")==0) {document.getElementById('vrblog').innerHTML = data.substring(0,4);
+      else if (search.indexOf("opBlogAdd&")==0) {document.getElementById('brblog').innerHTML = data.substring(0,4);
         if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
         else if (data.indexOf("发博成功")==0) Load('og博客~time');
       }
