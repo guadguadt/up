@@ -366,6 +366,7 @@
           document.getElementById("ooShow").innerHTML="<div class='main'>"+data+"</div><div style='height:40px;clear:both;'></div>";
           document.getElementById("ooShow").style.display="block";
           document.getElementById("ooShow").scrollTop=0;
+          document.getElementById("ooBack").style.display="none";
           if (data.indexOf('.m3u8')>=0) {
             var pid=data.match(/(id=")(\S*?)(")/);
             var player = videojs('#'+pid[2]);
