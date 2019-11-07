@@ -298,6 +298,9 @@
       else if (search.indexOf("b")==0) {
           document.getElementById(id).innerHTML=data;
       }
+      else if (search.indexOf("odHold")==0) {
+          document.getElementById(id).innerHTML=data;
+      }
       else if (search.indexOf("opLogin&")==0) {document.getElementById("ooLoginR").innerHTML = data;
         if (data.indexOf("登入成功")==0) {
           ooUser=document.getElementById('ooLoginN').value;
