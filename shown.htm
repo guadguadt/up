@@ -368,7 +368,7 @@
           if (data.indexOf('.mp3')>=0) {
             var pmedia=data.match(/(src=")(\S*?)(")/);
             var pcover=data.match(/(poster=")(\S*?)(")/);
-            document.getElementsByClassName('player-cover')[0].style.background='url(pcover[2])';
+            document.getElementsByClassName('player-cover')[0].style.background='url('+pcover[2]+')';
             document.getElementsByClassName('player-cover')[0].style.backgroundSize='cover';
             document.getElementsByClassName('player-container')[0].className='player-container playing';
             audioPlayer.src=pmedia[2]; audioPlayer.play()
@@ -385,24 +385,6 @@
           document.getElementById("ooBody").innerHTML=data;
           document.getElementById("ooShow").style.display="none";
           window.scrollTo(0,0);
-      }
-      else if (id.indexOf("c")==0 && document.getElementById(id)) {
-          document.getElementById(id).className="l";
-          document.getElementById(id).innerHTML=data;
-          //location.hash=id;
-          Roll(id);
-          if (data.indexOf('.m3u8')>=0) {
-            var pid=data.match(/(id=")(\S*?)(")/);
-            var player = videojs('#'+pid[2]);
-          }
-      }
-      else {
-          document.getElementById("ooBody").innerHTML="<div class='l'>"+data+"</div>";
-          Roll("ooBody");
-          if (data.indexOf('.m3u8')>=0) {
-            var pid=data.match(/(id=")(\S*?)(")/);
-            var player = videojs('#'+pid[2]);
-          }
       }
     }
 
