@@ -365,7 +365,15 @@
           document.getElementById("ooShow").style.display="block";
           document.getElementById("ooShow").scrollTop=0;
           document.getElementById("ooBack").style.display="none";
-          if (data.indexOf('.m3u8')>=0) {
+          if (data.indexOf('.mp3')>=0) {
+            var pmedia=data.match(/(src=")(\S*?)(")/);
+            var pcover=data.match(/(poster=")(\S*?)(")/);
+            document.getElementsByClassName('player-cover')[0].style.background='url(pcover[2])';
+            document.getElementsByClassName('player-cover')[0].style.backgroundSize='cover';
+            document.getElementsByClassName('player-container')[0].className='player-container playing';
+            audioPlayer.src=pmedia[2]; audioPlayer.play()
+          }
+          else if (data.indexOf('.m3u8')>=0) {
             var pid=data.match(/(id=")(\S*?)(")/);
             var player = videojs('#'+pid[2]);
           }
