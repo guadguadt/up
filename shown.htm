@@ -364,7 +364,7 @@
           document.getElementById("ooShow").style.display="block";
           document.getElementById("ooShow").scrollTop=0;
           document.getElementById("ooBack").style.display="none";
-          if (data.indexOf('.mp3')>=0) {
+          if (data.indexOf('poster=')>=0) {
             var pmedia=data.match(/(src=")(\S*?)(")/);
             var pcover=data.match(/(poster=")(\S*?)(")/);
             document.getElementsByClassName('player-cover')[0].style.background='url('+pcover[2]+')';
