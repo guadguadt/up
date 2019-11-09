@@ -369,8 +369,9 @@
             var pcover=data.match(/(poster=")(\S*?)(")/);
             document.getElementsByClassName('player-cover')[0].style.background='url('+pcover[2]+')';
             document.getElementsByClassName('player-cover')[0].style.backgroundSize='cover';
-            document.getElementsByClassName('player-container')[0].className='player-container playing';
-            audioPlayer.src=pmedia[2]; //audioPlayer.play()
+            //document.getElementsByClassName('player-container')[0].className='player-container playing';
+            audioPlayer.src=pmedia[2];
+            //audioPlayer.play()
           }
           else if (data.indexOf('.m3u8')>=0) {
             var pid=data.match(/(id=")(\S*?)(")/);
