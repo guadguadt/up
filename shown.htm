@@ -335,14 +335,13 @@
       else if (search.indexOf("opLogAll&")==0) document.getElementById("ooUserD").innerHTML = data;
       else if (search.indexOf("opViewAdd&")==0) {document.getElementById('vr'+data.substring(4)).innerHTML = data.substring(0,4);
           if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
-          else if (data.indexOf("评论成功")==0) Load('b'+data.substring(4));
+          else if (data.indexOf("评论成功")==0) Load('opViewAll'+data.substring(4));
       }
       else if (search.indexOf("opBlogAdd&")==0) {document.getElementById('brblog').innerHTML = data.substring(0,4);
           if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
           else if (data.indexOf("发博成功")==0) Load('og博客~time');
       }
-      else if (search.indexOf("i")==0 || search.indexOf("b")==0 || search.indexOf("opViewAll")==0
-          || search.indexOf("opHold")==0 || search.indexOf("opHoldSet")==0 || search.indexOf("opKickSet")==0 || search.indexOf("opLikeSet")==0
+      else if (search.indexOf("opHoldSet")==0 || search.indexOf("opKickSet")==0 || search.indexOf("opLikeSet")==0 || search.indexOf("opViewAll")==0
           || search.indexOf("opViewGet")==0 || search.indexOf("opViewHoldSet")==0 || search.indexOf("opViewKickSet")==0) {
           document.getElementById(id).innerHTML=data;
       }
