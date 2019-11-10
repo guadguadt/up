@@ -285,7 +285,7 @@
       if (id.indexOf("_")>0) id=id.substring(0,search.indexOf("_"));
       id = decodeURIComponent(id);
 
-      if (search.indexOf("opFind")==0) document.getElementById("ogFindR").innerHTML = data;
+           if (search.indexOf("opFind")==0) document.getElementById("ogFindR").innerHTML = data;
       else if (search.indexOf("ooDown")==0) document.getElementById("ooDownD").innerHTML = data;
       else if (search.indexOf("opQuit")==0) document.getElementById("ogQuitR").innerHTML = data;
       else if (search.indexOf("ogQuit")==0) document.getElementById("ogQuitD").innerHTML = data;
@@ -341,16 +341,8 @@
           if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
           else if (data.indexOf("发博成功")==0) Load('og博客~time');
       }
-      else if (search.indexOf("i")==0) {
-          document.getElementById(id).innerHTML=data;
-      }
-      else if (search.indexOf("v")==0) {
-          document.getElementById(id).innerHTML=data;
-      }
-      else if (search.indexOf("b")==0) {
-          document.getElementById(id).innerHTML=data;
-      }
-      else if (search.indexOf("opHold")==0 || search.indexOf("opHoldSet")==0
+      else if (search.indexOf("i")==0 || search.indexOf("v")==0 || search.indexOf("b")==0
+          || search.indexOf("opHold")==0 || search.indexOf("opHoldSet")==0
           || search.indexOf("opViewGet")==0 || search.indexOf("opViewHoldSet")==0 || search.indexOf("opViewKickSet")==0) {
           document.getElementById(id).innerHTML=data;
       }
