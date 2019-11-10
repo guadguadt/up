@@ -292,7 +292,7 @@
       else if (search.indexOf("b")==0) {
           document.getElementById(id).innerHTML=data;
       }
-      else if (search.indexOf("opHold")==0) {
+      else if (search.indexOf("opHold")==0 || search.indexOf("opHoldSet")==0 || search.indexOf("opViewGet")==0) {
           document.getElementById(id).innerHTML=data;
       }
       else if (search.indexOf("opLogin&")==0) {document.getElementById("ooLoginR").innerHTML = data;
