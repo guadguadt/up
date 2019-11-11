@@ -143,6 +143,8 @@
       <div id="ooUserD"></div>
     </div>
 
+    <div id="ooChat" class="tail" style="z-index:99998;"></div>
+
     <script>
     var ooFind="";
     var ooFrom="";
@@ -192,6 +194,7 @@
         document.getElementById("ooBack").style.display = "none";
         document.getElementById("ooQuit").style.display = "none";
         document.getElementById("ooUser").style.display = "none";
+        document.getElementById("ooChat").style.display = "none";
         if (document.getElementById("ooBody").innerHTML!="") return;
         else search="ogHome";
       }
@@ -202,6 +205,7 @@
         document.getElementById("ooBack").style.display = "none";
         document.getElementById("ooQuit").style.display = "none";
         document.getElementById("ooUser").style.display = "none";
+        document.getElementById("ooChat").style.display = "none";
         return;
       }
       else if (search.indexOf("ooFind")==0) {
@@ -211,6 +215,7 @@
         document.getElementById("ooBack").style.display = "none";
         document.getElementById("ooQuit").style.display = "none";
         document.getElementById("ooUser").style.display = "none";
+        document.getElementById("ooChat").style.display = "none";
         return;
       }
       else if (search.indexOf("ooDown")==0) {
@@ -220,6 +225,7 @@
         document.getElementById("ooBack").style.display = "none";
         document.getElementById("ooQuit").style.display = "none";
         document.getElementById("ooUser").style.display = "none";
+        document.getElementById("ooChat").style.display = "none";
         if ('n'!='a' && 'n'!='w') return;
       }
       else if (search.indexOf("ogBack")==0) {
@@ -229,6 +235,7 @@
         document.getElementById("ooBack").style.display = "block";
         document.getElementById("ooQuit").style.display = "none";
         document.getElementById("ooUser").style.display = "none";
+        document.getElementById("ooChat").style.display = "none";
         document.getElementById("ogBackR").innerHTML = "";
         search="ogBack"+"&from="+ooFrom;
       }
@@ -239,6 +246,7 @@
         document.getElementById("ooBack").style.display = "none";
         document.getElementById("ooQuit").style.display = "block";
         document.getElementById("ooUser").style.display = "none";
+        document.getElementById("ooChat").style.display = "none";
         document.getElementById("ogQuitR").innerHTML = "";
         document.getElementById("ogFindR").innerHTML = "";
         search="ogQuit"+"&from="+ooFrom;
@@ -250,6 +258,7 @@
         document.getElementById("ooBack").style.display = "none";
         document.getElementById("ooQuit").style.display = "none";
         document.getElementById("ooUser").style.display = "block";
+        document.getElementById("ooChat").style.display = "none";
         if (ooUser == "") {
           document.getElementById("ooLoginR").innerHTML = "";
           document.getElementById("ooLogupR").innerHTML = "";
@@ -269,6 +278,9 @@
           document.getElementById("ooLognk").style.display = "none";
         }
         return;
+      }
+      else if (search.indexOf("ooChat")==0) {
+        document.getElementById("ooChat").style.display = "block";
       }
 
       document.getElementById("ooWait").style.display = "block";
@@ -291,6 +303,7 @@
       else if (search.indexOf("ogQuit")==0) document.getElementById("ogQuitD").innerHTML = data;
       else if (search.indexOf("opBack")==0) document.getElementById("ogBackR").innerHTML = data;
       else if (search.indexOf("ogBack")==0) document.getElementById("ogBackD").innerHTML = data;
+      else if (search.indexOf("ooChat")==0) document.getElementById("ooChat").innerHTML = data;
       else if (search.indexOf("opLogin&")==0) {document.getElementById("ooLoginR").innerHTML = data;
         if (data.indexOf("登入成功")==0) {
           ooUser=document.getElementById('ooLoginN').value;
@@ -382,10 +395,6 @@
           document.getElementById("ooShow").style.display="none";
           window.scrollTo(0,0);
       }
-    }
-
-    function Roll(id) {
-      window.scrollTo(0,document.getElementById(id).getBoundingClientRect().top+window.pageYOffset-40);
     }
 
     function Test(search) {
