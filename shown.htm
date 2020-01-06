@@ -368,10 +368,16 @@
           Load(ooFind);
       }
       else if (id.indexOf("c")==0 || id.indexOf("http")==0 || id.indexOf("/")==0 || id.indexOf("~c")==0 || id.indexOf("~http")==0 || id.indexOf("~/")==0) {
+          if (data.indexOf('解析超时，请点刷新')>=0) {
+            document.getElementById("ooWait").style.display="block";
+            setTimeout(function(){Test(search);},2000);
+            return;
+          }
           document.getElementById("ooShow").innerHTML="<div class='main'>"+data+"</div><div style='height:40px;clear:both;'></div>";
           document.getElementById("ooShow").style.display="block";
           document.getElementById("ooShow").scrollTop=0;
           document.getElementById("ooBack").style.display="none";
+          document.getElementById("ooQuit").style.display="none";          
           if (data.indexOf('poster=')>=0) {
             var pmedia=data.match(/(src=")(\S*?)(")/);
             var pcover=data.match(/(poster=")(\S*?)(")/);
