@@ -392,6 +392,7 @@
             var pid=data.match(/(id=")(\S*?)(")/);
             var player = videojs('#'+pid[2]);
           }
+          if (data.indexOf('data-ad-client=')>=0) (adsbygoogle = window.adsbygoogle || []).push({});
       }
       else if (id.indexOf("on")==0 && document.getElementById(id)) {
           document.getElementById(id).innerHTML=data;
