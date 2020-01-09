@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,11,10,9">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body ontouchstart="">
@@ -401,6 +402,7 @@
           document.getElementById("ooBody").innerHTML=data;
           document.getElementById("ooShow").style.display="none";
           window.scrollTo(0,0);
+          if (data.indexOf('data-ad-client=')>=0) (adsbygoogle = window.adsbygoogle || []).push({});
       }
     }
 
