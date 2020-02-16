@@ -419,7 +419,7 @@
       .done(function(data) {
         if (data.indexOf('上传成功')==0) {
           document.getElementById('va'+id).innerHTML+='\r\n'+data.substring(4);
-          document.getElementById('vr'+id).innerHTML='';
+          document.getElementById('vr'+id).innerHTML='上传成功';
         }
         else document.getElementById('vr'+id).innerHTML=data;
       })
