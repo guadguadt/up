@@ -406,6 +406,28 @@
       }
     }
 
+    function File(id) { 
+      var formData = new FormData();
+      formData.append('oofile', $('#oofile')[0].files[0]);
+      jQuery.ajax({
+        url: '/oo.aspx?name=add_oofile&sign=[[ooSign]]',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+      })
+      .done(function(data) {
+        if (data.indexOf('上传成功')==0) {
+          document.getElementById('va'+id).innerHTML+='\r\n'+data.substring(4);
+          document.getElementById('vr'+id).innerHTML='';
+        }
+        else document.getElementById('vr'+id).innerHTML=data;
+      })
+      .fail(function() {
+        document.getElementById('vr'+id).innerHTML='上传失败';
+      });
+    }
+
     function Test(search) {
       external.Ajax(search);
     }
