@@ -350,7 +350,7 @@
       else if (search.indexOf("opLogAll&")==0) document.getElementById("ooUserD").innerHTML = data;
       else if (search.indexOf("opViewAdd&")==0) {document.getElementById('vr'+data.substring(4)).innerHTML = data.substring(0,4);
           if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
-          else if (data.indexOf("评论成功")==0) Load('opViewAll'+data.substring(4));
+          else if (data.indexOf("发评成功")==0) Load('opViewAll'+data.substring(4));
       }
       else if (search.indexOf("opBlogAdd&")==0) {document.getElementById('vrblog').innerHTML = data.substring(0,4);
           if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
@@ -420,7 +420,7 @@
       })
       .done(function(data) {
         if (data.indexOf('上传成功')==0) {
-          document.getElementById('va'+id).innerHTML+='\r\n'+data.substring(4);
+          document.getElementById('va'+id).value+='\r\n'+data.substring(4);
           document.getElementById('vr'+id).innerHTML='上传成功';
         }
         else document.getElementById('vr'+id).innerHTML=data;
