@@ -348,6 +348,7 @@
           document.getElementById("ooLognkR").innerHTML='';
         }}
       else if (search.indexOf("opLogAll&")==0) document.getElementById("ooUserD").innerHTML = data;
+      else if (search.indexOf("opUserSet&")==0) document.getElementById('vruser').innerHTML = data;
       else if (search.indexOf("opViewAdd&")==0) {document.getElementById('vr'+data.substring(4)).innerHTML = data.substring(0,4);
           if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
           else if (data.indexOf("发评成功")==0) Load('opViewAll'+data.substring(4));
