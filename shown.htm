@@ -311,9 +311,11 @@
       }
       else if (search.indexOf("opChatAdd")==0) {
         var hid=data.match(/(id=')(\S*?)(')/g);
-        if (hid!=null && hid.length>0) ooChat=hid[hid.length-1].replace('id=\'','').replace('\'','');
-        document.getElementById("opChatAdd").innerHTML += data;
-        document.getElementById("opChatAdd").scrollTop=document.getElementById("opChatAdd").scrollHeight;
+        if (hid!=null && hid.length>0) {
+          ooChat=hid[hid.length-1].replace('id=\'','').replace('\'','');
+          document.getElementById("opChatAdd").innerHTML += data;
+          document.getElementById("opChatAdd").scrollTop=document.getElementById("opChatAdd").scrollHeight;
+        }
       }
       else if (search.indexOf("opFind")==0) document.getElementById("ogFindR").innerHTML = data;
       else if (search.indexOf("ooDown")==0) document.getElementById("ooDownD").innerHTML = data;
