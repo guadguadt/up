@@ -33,16 +33,16 @@
 
     <div id="ooShow" class="tail"></div>
 
+    <div id="ooDown" class="tail"><div id="ooDownD"></div></div>
+
+    <div id="ooChat" class="tail"></div>
+
     <div id="ooFind" class="tail">
       <div style="position:absolute; background:#faf2e1; top:0; left:0; width:100%; height:40px;">
         <div class="find">
           <input id="oiFind" type="text"><a href="javascript:void(0);" onclick="javascript:document.getElementById('ooFind').style.display='none'; Load(encodeURIComponent('~'+document.getElementById('oiFind').value));">搜索</a>
         </div>
       </div>
-    </div>
-
-    <div id="ooDown" class="tail">
-      <div id="ooDownD"></div>
     </div>
 
     <div id="ooBack" class="tail">
@@ -145,13 +145,12 @@
       <div id="ooUserD"></div>
     </div>
 
-    <div id="ooChat" class="tail" style="z-index:99998;"></div>
-
     <script>
     var ooFind="";
     var ooFrom="";
     var ooUser="";
     var ooPass="";
+    var ooChat="";
 
     $(window).scroll(function() {if ($(document).scrollTop()>150) {$('div.navl').css('background','#faf2e1');} else {$('div.navl').css('background','rgba(0,0,0,0)');}});
 
@@ -209,6 +208,15 @@
         document.getElementById("ooUser").style.display = "none";
         document.getElementById("ooChat").style.display = "none";
         return;
+      }
+      else if (search.indexOf("opChatAll")==0) {
+        document.getElementById("ooShow").style.display = "none";
+        document.getElementById("ooFind").style.display = "none";
+        document.getElementById("ooDown").style.display = "none";
+        document.getElementById("ooBack").style.display = "none";
+        document.getElementById("ooQuit").style.display = "none";
+        document.getElementById("ooUser").style.display = "none";
+        document.getElementById("ooChat").style.display = "block";
       }
       else if (search.indexOf("ooFind")==0) {
         document.getElementById("ooShow").style.display = "none";
@@ -281,9 +289,6 @@
         }
         return;
       }
-      else if (search.indexOf("ooChat")==0) {
-        document.getElementById("ooChat").style.display = "block";
-      }
 
       document.getElementById("ooWait").style.display = "block";
       Test(search);
@@ -299,7 +304,18 @@
       if (id.indexOf("_")>0) id=id.substring(0,search.indexOf("_"));
       id = decodeURIComponent(id);
 
-           if (search.indexOf("opFind")==0) document.getElementById("ogFindR").innerHTML = data;
+      if (search.indexOf("opChatAll")==0) {
+        document.getElementById("ooChat").innerHTML = data;
+        ooChat='h_2_0';
+        Load('opChatAdd&oochat=h_2_0');
+      }
+      else if (search.indexOf("opChatAdd")==0) {
+        var hid=data.match(/(?<=id=')(\S*?)(?=')/g);
+        if (hid!=null && hid.length>0) ooChat=hid[hid.length-1];
+        document.getElementById("opChatAdd").innerHTML += data;
+        document.getElementById("opChatAdd").scrollTop=document.getElementById("opChatAdd").scrollHeight;
+      }
+      else if (search.indexOf("opFind")==0) document.getElementById("ogFindR").innerHTML = data;
       else if (search.indexOf("ooDown")==0) document.getElementById("ooDownD").innerHTML = data;
       else if (search.indexOf("opQuit")==0) document.getElementById("ogQuitR").innerHTML = data;
       else if (search.indexOf("ogQuit")==0) document.getElementById("ogQuitD").innerHTML = data;
@@ -411,6 +427,11 @@
       }
     }
 
+    function Chat() {
+      if (ooChat!='') Load('opChatAdd&oochat='+encodeURIComponent(ooChat));
+      setTimeout(function(){Chat();},15000);
+    }
+
     function File(id,oofile) {
       document.getElementById('vr'+id).innerHTML='上传中…';
       var formData = new FormData();
@@ -447,6 +468,7 @@
     }
 
     Init();
+    Chat();
     </script>
 
     <link  href="https://cdn.jsdelivr.net/npm/video.js@7.5.4/dist/video-js.min.css" rel="stylesheet">
