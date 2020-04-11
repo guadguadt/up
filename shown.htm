@@ -320,13 +320,13 @@
         else document.getElementById("vrChat").innerHTML=data;
       }
       else if (search.indexOf("opFind")==0) {
-          document.getElementById("ogFindR").innerHTML = data;
-          if (data.indexOf('查找失败')>=0) setTimeout(function(){Load(search);},2000);
-        }
+        document.getElementById("ogFindR").innerHTML = data;
+        if (data.indexOf('查找失败')>=0) setTimeout(function(){Load(search);},2000);
+      }
       else if (search.indexOf("opQuit")==0) {
-          document.getElementById("ogQuitR").innerHTML = data;
-          if (data.indexOf('登记失败')>=0) setTimeout(function(){Load(search);},2000);
-        }
+        document.getElementById("ogQuitR").innerHTML = data;
+        if (data.indexOf('登记失败')>=0) setTimeout(function(){Load(search);},2000);
+      }
       else if (search.indexOf("ogQuit")==0) document.getElementById("ogQuitD").innerHTML = data;
       else if (search.indexOf("opBack")==0) document.getElementById("ogBackR").innerHTML = data;
       else if (search.indexOf("ogBack")==0) document.getElementById("ogBackD").innerHTML = data;
