@@ -385,8 +385,10 @@
       else if (search.indexOf("opQuesAdd&")==0) {document.getElementById('vrques').innerHTML = data.substring(0,4);
           if (data.indexOf("发问成功")==0) Load('og问答~time');
       }
-      else if (search.indexOf("opHoldSet")==0 || search.indexOf("opKickSet")==0 || search.indexOf("opLikeSet")==0 || search.indexOf("opViewAll")==0
-          || search.indexOf("opViewGet")==0 || search.indexOf("opViewHoldSet")==0 || search.indexOf("opViewKickSet")==0) {
+      else if (search.indexOf("opHoldSet")==0 || search.indexOf("opKickSet")==0 || search.indexOf("opLikeSet")==0
+          || search.indexOf("opViewAll")==0  || search.indexOf("opViewGet")==0
+          || search.indexOf("opViewHoldSet")==0 || search.indexOf("opViewKickSet")==0
+          || search.indexOf("opBillAdd")==0) {
           document.getElementById(id).innerHTML=data;
       }
       else if (id.indexOf("Head")==2) {
