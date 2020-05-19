@@ -293,7 +293,7 @@
       }
 
       if (search.indexOf("opChatAdd")<0) document.getElementById("ooWait").style.display = "block";
-      if (search.indexOf("c")==0 || search.indexOf("~c")==0)
+      if (search.indexOf("c")==0 || search.indexOf("~c")==0 || search.indexOf("opChatAdd")==0)
         Test(search+'&ooUser='+encodeURIComponent(ooUser)+'&ooPass='+encodeURIComponent(ooPass));
       else Test(search);
     }
