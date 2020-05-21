@@ -9,7 +9,7 @@
 </head>
 
 <body ontouchstart="">
-    <!-- 052 -->
+    <!-- 053 -->
     <style type="text/css">
         body {margin:0px; background:#ffffff;}
         div.tail {position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffff; z-index:99995; display:none; overflow-y:scroll;}
@@ -34,6 +34,8 @@
     <div id="ooShow" class="tail"></div>
 
     <div id="ooDown" class="tail"><div id="ooDownD"></div></div>
+
+    <div id="ooNode" class="tail"></div>
 
     <div id="ooChat" class="tail"></div>
 
@@ -151,6 +153,7 @@
     var ooFrom="";
     var ooUser="";
     var ooPass="";
+    var ooPage="";
     var ooChat="";
 
     $(window).scroll(function() {if ($(document).scrollTop()>150) {$('div.navl').css('background','#faf2e1');} else {$('div.navl').css('background','rgba(0,0,0,0)');}});
@@ -188,89 +191,37 @@
     }
 
     function Load(search) {
+      if (search.indexOf("ooHome")==0 || search.indexOf("ooShow")==0 || search.indexOf("opNodeAll")==0 || search.indexOf("opChatAll")==0
+        || search.indexOf("ooFind")==0 || search.indexOf("ooDown")==0 || search.indexOf("ogBack")==0 || search.indexOf("ogQuit")==0
+        || search.indexOf("ogUser")==0) {
+        document.getElementById("ooShow").style.display = (search.indexOf("ooShow")==0?"block":"none");
+        document.getElementById("ooFind").style.display = (search.indexOf("ooFind")==0?"block":"none");
+        document.getElementById("ooDown").style.display = (search.indexOf("ooDown")==0?"block":"none");
+        document.getElementById("ooBack").style.display = (search.indexOf("ogBack")==0?"block":"none");
+        document.getElementById("ooQuit").style.display = (search.indexOf("ogQuit")==0?"block":"none");
+        document.getElementById("ooUser").style.display = (search.indexOf("ogUser")==0?"block":"none");
+        document.getElementById("ooNode").style.display = (search.indexOf("opNodeAll")==0?"block":"none");
+        document.getElementById("ooChat").style.display = (search.indexOf("opChatAll")==0?"block":"none");
+        ooPage='';
+      }
       if (search.indexOf("ooHome")==0) {
-        document.getElementById("ooShow").innerHTML="";
-        document.getElementById("ooShow").style.display = "none";
-        document.getElementById("ooFind").style.display = "none";
-        document.getElementById("ooDown").style.display = "none";
-        document.getElementById("ooBack").style.display = "none";
-        document.getElementById("ooQuit").style.display = "none";
-        document.getElementById("ooUser").style.display = "none";
-        document.getElementById("ooChat").style.display = "none";
-        ooChat='';
+        //document.getElementById("ooShow").innerHTML="";
         if (document.getElementById("ooBody").innerHTML!="") return;
         else search="ogHome";
       }
-      else if (search.indexOf("ooShow")==0) {
-        document.getElementById("ooShow").style.display = "block";
-        document.getElementById("ooFind").style.display = "none";
-        document.getElementById("ooDown").style.display = "none";
-        document.getElementById("ooBack").style.display = "none";
-        document.getElementById("ooQuit").style.display = "none";
-        document.getElementById("ooUser").style.display = "none";
-        document.getElementById("ooChat").style.display = "none";
-        return;
-      }
-      else if (search.indexOf("opChatAll")==0) {
-        document.getElementById("ooShow").style.display = "none";
-        document.getElementById("ooFind").style.display = "none";
-        document.getElementById("ooDown").style.display = "none";
-        document.getElementById("ooBack").style.display = "none";
-        document.getElementById("ooQuit").style.display = "none";
-        document.getElementById("ooUser").style.display = "none";
-        document.getElementById("ooChat").style.display = "block";
-      }
-      else if (search.indexOf("ooFind")==0) {
-        document.getElementById("ooShow").style.display = "none";
-        document.getElementById("ooFind").style.display = "block";
-        document.getElementById("ooDown").style.display = "none";
-        document.getElementById("ooBack").style.display = "none";
-        document.getElementById("ooQuit").style.display = "none";
-        document.getElementById("ooUser").style.display = "none";
-        document.getElementById("ooChat").style.display = "none";
-        return;
-      }
-      else if (search.indexOf("ooDown")==0) {
-        document.getElementById("ooShow").style.display = "none";
-        document.getElementById("ooFind").style.display = "none";
-        document.getElementById("ooDown").style.display = "block";
-        document.getElementById("ooBack").style.display = "none";
-        document.getElementById("ooQuit").style.display = "none";
-        document.getElementById("ooUser").style.display = "none";
-        document.getElementById("ooChat").style.display = "none";
-        if ('n'!='a' && 'n'!='w') return;
-      }
+      else if (search.indexOf("ooShow")==0) {return;}
+      else if (search.indexOf("ooFind")==0) {return;}
+      else if (search.indexOf("ooDown")==0) {if ('t'!='a' && 't'!='w') return;}
       else if (search.indexOf("ogBack")==0) {
-        document.getElementById("ooShow").style.display = "none";
-        document.getElementById("ooFind").style.display = "none";
-        document.getElementById("ooDown").style.display = "none";
-        document.getElementById("ooBack").style.display = "block";
-        document.getElementById("ooQuit").style.display = "none";
-        document.getElementById("ooUser").style.display = "none";
-        document.getElementById("ooChat").style.display = "none";
         document.getElementById("ogBackR").innerHTML = "";
         search="ogBack";
       }
       else if (search.indexOf("ogQuit")==0) {
-        document.getElementById("ooShow").style.display = "none";
-        document.getElementById("ooFind").style.display = "none";
-        document.getElementById("ooDown").style.display = "none";
-        document.getElementById("ooBack").style.display = "none";
-        document.getElementById("ooQuit").style.display = "block";
-        document.getElementById("ooUser").style.display = "none";
-        document.getElementById("ooChat").style.display = "none";
         document.getElementById("ogQuitR").innerHTML = "";
         document.getElementById("ogFindR").innerHTML = "";
         search="ogQuit";
       }
       else if (search.indexOf("ogUser")==0) {
-        document.getElementById("ooShow").style.display = "none";
-        document.getElementById("ooFind").style.display = "none";
-        document.getElementById("ooDown").style.display = "none";
-        document.getElementById("ooBack").style.display = "none";
-        document.getElementById("ooQuit").style.display = "none";
-        document.getElementById("ooUser").style.display = "block";
-        document.getElementById("ooChat").style.display = "none";
         if (ooUser == "") {
           document.getElementById("ooLoginR").innerHTML = "";
           document.getElementById("ooLogupR").innerHTML = "";
@@ -292,10 +243,11 @@
         return;
       }
 
-      if (search.indexOf("opChatAdd")<0) document.getElementById("ooWait").style.display = "block";
-      if (search.indexOf("c")==0 || search.indexOf("~c")==0 || (search.indexOf("opChatAdd")==0 && search.indexOf("post=")<0))
-        Test(search+'&ooUser='+encodeURIComponent(ooUser)+'&ooPass='+encodeURIComponent(ooPass));
-      else Test(search);
+      if (search.indexOf("opNodeAllNGet")<0 && search.indexOf("opChatHAdd")<0) document.getElementById("ooWait").style.display = "block";
+      if (search.indexOf("&")>=0) search=search.substring(0,search.indexOf("&"))
+        +'&oouser='+encodeURIComponent(ooUser)+'&oopass='+encodeURIComponent(ooPass)+search.substring(search.indexOf("&"));
+      else search+='&oouser='+encodeURIComponent(ooUser)+'&oopass='+encodeURIComponent(ooPass);
+      Test(search);
     }
 
     function Show(search, data) {
@@ -304,24 +256,28 @@
       var name=search;
       if (name.indexOf("&")>0) name=name.substring(0,search.indexOf("&"));
       if (name.indexOf("~")>0) name=name.substring(0,search.indexOf("~"));
+      name = decodeURIComponent(name);
       var id=name;
       if (id.indexOf("_")>0) id=id.substring(0,search.indexOf("_"));
-      id = decodeURIComponent(id);
 
-      if (search.indexOf("opChatAll")==0) {
-        document.getElementById("ooChat").innerHTML=data;
-        ooChat='h_2_0';
-        Load('opChatAdd&oochat=h_2_0');
-      }
-      else if (search.indexOf("opChatAdd")==0) {
+           if (name.indexOf("opNodeAll")==0) {document.getElementById("ooNode").innerHTML=data; ooPage=name;}
+      else if (name.indexOf("opChatAll")==0) {document.getElementById("ooChat").innerHTML=data; ooPage=name;
+           if (name=='opChatAllHAdd') ooChat=search.substring(search.indexOf("oochat=")+7); Load('opChatHAdd&oochat='+ooChat);}
+      else if (name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
+        || name=="opChatNSet" || name=="opChatNUAdd" || name=="opChatNUDel") document.getElementById(name).innerHTML = data;
+      else if (name=="opChatHAdd") {
         var hid=data.match(/(id=')(\S*?)(')/g);
         if (hid!=null && hid.length>0) {
           ooChat=hid[hid.length-1].replace('id=\'','').replace('\'','');
-          document.getElementById("opChatAdd").innerHTML+=data;
-          document.getElementById("opChatAdd").scrollTop=document.getElementById("opChatAdd").scrollHeight;
+          if (document.getElementById("opChatHAdd")) {
+            document.getElementById("opChatHAdd").innerHTML+=data;
+            document.getElementById("opChatHAdd").scrollTop=document.getElementById("opChatHAdd").scrollHeight;
+          }
         }
-        else document.getElementById("vrChat").innerHTML=data;
+        else if (document.getElementById("vrChat")) document.getElementById("vrChat").innerHTML=data;
       }
+      else if (name=="opChatNGet") {document.getElementById(name).innerHTML=data; document.getElementById(name).removeAttribute("id");}
+
       else if (search.indexOf("opFind")==0) {
         document.getElementById("ogFindR").innerHTML = data;
         if (data.indexOf('查找失败')>=0) setTimeout(function(){Load(search);},2000);
@@ -443,7 +399,8 @@
     }
 
     function Chat() {
-      if (ooChat!='') Load('opChatAdd&oochat='+encodeURIComponent(ooChat));
+      if (ooPage=='opNodeAllNGet') Load('opNodeAllNGet');
+      else if (ooPage=='opChatAllHAdd') Load('opChatHAdd&oochat='+ooChat);
       setTimeout(function(){Chat();},15000);
     }
 
