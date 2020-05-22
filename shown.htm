@@ -393,6 +393,8 @@
       else if (id.indexOf("o")==0 || id.indexOf("~")==0) {
           document.getElementById("ooBody").innerHTML=data;
           document.getElementById("ooShow").style.display="none";
+          document.getElementById("ooBack").style.display="none";
+          document.getElementById("ooQuit").style.display="none";
           window.scrollTo(0,0);
           if (data.indexOf('data-ad-client=')>=0) (adsbygoogle = window.adsbygoogle || []).push({});
       }
