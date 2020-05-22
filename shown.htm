@@ -9,7 +9,7 @@
 </head>
 
 <body ontouchstart="">
-    <!-- 053 -->
+    <!-- 054 -->
     <style type="text/css">
         body {margin:0px; background:#ffffff;}
         div.tail {position:fixed; top:0; left:0; width:100%; height:100%; background:#ffffff; z-index:99995; display:none; overflow-y:scroll;}
@@ -262,9 +262,14 @@
 
            if (name.indexOf("opNodeAll")==0) {document.getElementById("ooNode").innerHTML=data; ooPage=name;}
       else if (name.indexOf("opChatAll")==0) {document.getElementById("ooChat").innerHTML=data; ooPage=name;
-           if (name=='opChatAllHAdd') ooChat=search.substring(search.indexOf("oochat=")+7); Load('opChatHAdd&oochat='+ooChat);}
-      else if (name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
-        || name=="opChatNSet" || name=="opChatNUAdd" || name=="opChatNUDel") document.getElementById(name).innerHTML = data;
+        if (name=='opChatAllHAdd') {
+          var hid=data.match(/(oochat=)(\S*?)(')/g);
+          if (hid!=null && hid.length>0) {
+            ooChat=hid[0].replace('oochat=','').replace('\'','');
+            Load('opChatHAdd&oochat='+ooChat);
+          }
+        }
+      }
       else if (name=="opChatHAdd") {
         var hid=data.match(/(id=')(\S*?)(')/g);
         if (hid!=null && hid.length>0) {
@@ -277,6 +282,8 @@
         else if (document.getElementById("vrChat")) document.getElementById("vrChat").innerHTML=data;
       }
       else if (name=="opChatNGet") {document.getElementById(name).innerHTML=data; document.getElementById(name).removeAttribute("id");}
+      else if (name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
+        || name=="opChatNSet" || name=="opChatNUAdd" || name=="opChatNUDel") document.getElementById(name).innerHTML = data;
 
       else if (search.indexOf("opFind")==0) {
         document.getElementById("ogFindR").innerHTML = data;
