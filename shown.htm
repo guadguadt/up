@@ -376,14 +376,16 @@
           document.getElementById("ooShow").innerHTML="<div class='main'>"+data+"</div><div style='height:40px;clear:both;'></div>";
           document.getElementById("ooShow").style.display="block";
           document.getElementById("ooShow").scrollTop=0;
+          document.getElementById("ooChat").style.display="none";
           document.getElementById("ooBack").style.display="none";
-          document.getElementById("ooQuit").style.display="none";          
+          document.getElementById("ooQuit").style.display="none";
           if (data.indexOf('poster=')>=0) {
             var pmedia=data.match(/(src=")(\S*?)(")/);
             var pcover=data.match(/(poster=")(\S*?)(")/);
             document.getElementsByClassName('player-cover')[0].style.background='url('+pcover[2]+')';
             document.getElementsByClassName('player-cover')[0].style.backgroundSize='cover';
             document.getElementsByClassName('player-container')[0].className='player-container';
+            audioPlayer.preload="none";
             audioPlayer.pause();
             audioPlayer.currentTime = 0;
             audioPlayer.src=pmedia[2];
@@ -400,6 +402,7 @@
       else if (id.indexOf("o")==0 || id.indexOf("~")==0) {
           document.getElementById("ooBody").innerHTML=data;
           document.getElementById("ooShow").style.display="none";
+          document.getElementById("ooChat").style.display="none";
           document.getElementById("ooBack").style.display="none";
           document.getElementById("ooQuit").style.display="none";
           window.scrollTo(0,0);
