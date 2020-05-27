@@ -35,9 +35,9 @@
 
     <div id="ooDown" class="tail"><div id="ooDownD"></div></div>
 
-    <div id="ooNode" class="tail"></div>
+    <div id="ooNode" class="tail" style='overflow:hidden;'></div>
 
-    <div id="ooChat" class="tail"></div>
+    <div id="ooChat" class="tail" style='overflow:hidden;'></div>
 
     <div id="ooFind" class="tail">
       <div style="position:absolute; background:#faf2e1; top:0; left:0; width:100%; height:40px;">
@@ -243,7 +243,7 @@
         return;
       }
 
-      if (search.indexOf("opNodeAllNGet")<0 && search.indexOf("opChatHAdd")<0) document.getElementById("ooWait").style.display = "block";
+      if (search.indexOf("opNodeNGet")<0 && search.indexOf("opChatHAdd")<0) document.getElementById("ooWait").style.display = "block";
       if (search.indexOf("&")>=0) search=search.substring(0,search.indexOf("&"))
         +'&oouser='+encodeURIComponent(ooUser)+'&oopass='+encodeURIComponent(ooPass)+search.substring(search.indexOf("&"));
       else search+='&oouser='+encodeURIComponent(ooUser)+'&oopass='+encodeURIComponent(ooPass);
@@ -282,7 +282,7 @@
         else if (document.getElementById("vrChat")) document.getElementById("vrChat").innerHTML=data;
       }
       else if (name=="opChatNGet") {document.getElementById(name).innerHTML=data; document.getElementById(name).removeAttribute("id");}
-      else if (name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
+      else if (name=="opNodeNGet" || name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
         || name=="opChatNSet" || name=="opChatNUAdd" || name=="opChatNUDel") document.getElementById(name).innerHTML = data;
 
       else if (search.indexOf("opFind")==0) {
@@ -411,7 +411,7 @@
     }
 
     function Chat() {
-      if (ooPage=='opNodeAllNGet') Load('opNodeAllNGet');
+      if (ooPage=='opNodeAllNGet') Load('opNodeNGet');
       else if (ooPage=='opChatAllHAdd') Load('opChatHAdd&oochat='+ooChat);
       setTimeout(function(){Chat();},15000);
     }
