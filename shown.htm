@@ -33,8 +33,6 @@
 
     <div id="ooShow" class="tail"></div>
 
-    <div id="ooDown" class="tail"><div id="ooDownD"></div></div>
-
     <div id="ooNode" class="tail" style='overflow:hidden;'></div>
 
     <div id="ooChat" class="tail" style='overflow:hidden;'></div>
@@ -47,15 +45,9 @@
       </div>
     </div>
 
-    <div id="ooBack" class="tail">
-      <div id="ogBack"><div class="ca3v"><div style="width:296px; margin:0 auto;">
-        <p><textarea id="ogBackF" style="width:100%; height:180px; border-width:0px;"></textarea></p>
-        <div class="buttoncontainer"><div class="button"><a href="javascript:void(0);" onclick="javascript:document.getElementById('ogBackR').innerHTML=''; Load('opBack'
-        +'&post='+encodeURIComponent(document.getElementById('ogBackF').value));">&#x53CD;&#x9988;</a></div></div>
-        <div id="ogBackR" class="erro"></div>
-      </div></div></div>
-      <div id="ogBackD"></div>
-    </div>
+    <div id="ooDown" class="tail"><div id="ooDownD"></div></div>
+
+    <div id="ooBack" class="tail" style='overflow:hidden;'></div>
 
     <div id="ooQuit" class="tail">
       <div id="ogQuit"><div class="ca3v"><div style="width:296px; margin:0 auto;">
@@ -212,10 +204,7 @@
       else if (search.indexOf("ooShow")==0) {return;}
       else if (search.indexOf("ooFind")==0) {return;}
       else if (search.indexOf("ooDown")==0) {if ('t'!='a' && 't'!='w') return;}
-      else if (search.indexOf("ogBack")==0) {
-        document.getElementById("ogBackR").innerHTML = "";
-        search="ogBack";
-      }
+      else if (search.indexOf("ogBack")==0) {search="opBackAll";}
       else if (search.indexOf("ogQuit")==0) {
         document.getElementById("ogQuitR").innerHTML = "";
         document.getElementById("ogFindR").innerHTML = "";
@@ -285,6 +274,9 @@
       else if (name=="opNodeNGet" || name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
         || name=="opChatNSet" || name=="opChatNUAdd" || name=="opChatNUDel") document.getElementById(name).innerHTML = data;
 
+      else if (name.indexOf("opBackAll")==0) document.getElementById("ooBack").innerHTML=data;
+      else if (name.indexOf("opBackAdd")==0) document.getElementById("vrBack").innerHTML=data;
+
       else if (search.indexOf("opFind")==0) {
         document.getElementById("ogFindR").innerHTML = data;
         if (data.indexOf('查找失败')>=0) setTimeout(function(){Load(search);},2000);
@@ -294,8 +286,6 @@
         if (data.indexOf('登记失败')>=0) setTimeout(function(){Load(search);},2000);
       }
       else if (search.indexOf("ogQuit")==0) document.getElementById("ogQuitD").innerHTML = data;
-      else if (search.indexOf("opBack")==0) document.getElementById("ogBackR").innerHTML = data;
-      else if (search.indexOf("ogBack")==0) document.getElementById("ogBackD").innerHTML = data;
       else if (search.indexOf("ooDown")==0) document.getElementById("ooDownD").innerHTML = data;
       else if (search.indexOf("opLogin&")==0) {document.getElementById("ooLoginR").innerHTML = data;
         if (data.indexOf("登入成功")==0) {
