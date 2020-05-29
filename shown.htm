@@ -272,7 +272,10 @@
         }
         else if (document.getElementById("vrChat")) document.getElementById("vrChat").innerHTML=data;
       }
-      else if (name=="opNodeNGet") {document.getElementById(name).innerHTML=data; if (data.indexOf("class='node_ring'")>=0) audioRing.play();}
+      else if (name=="opNodeNGet") {
+        if (data!="") document.getElementById(name).innerHTML=data;
+        if (data.indexOf("class='node_ring'")>=0) audioRing.play();
+      }
       else if (name=="opChatNGet") {document.getElementById(name).innerHTML=data; document.getElementById(name).removeAttribute("id");}
       else if (name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
         || name=="opChatNSet" || name=="opChatNUAdd" || name=="opChatNUDel") document.getElementById(name).innerHTML=data;
