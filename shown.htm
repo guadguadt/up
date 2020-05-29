@@ -167,6 +167,8 @@
 
     var audioPlayer = new Audio();
     audioPlayer.onended = function(){document.getElementsByClassName('player-container')[0].className='player-container';};
+    var audioRing = new Audio();
+    audioRing.src="https://cdn.jsdelivr.net/gh/opipe/up/_/ring.mp3";
 
     function Init() {
       var q=location.search;
@@ -270,9 +272,10 @@
         }
         else if (document.getElementById("vrChat")) document.getElementById("vrChat").innerHTML=data;
       }
+      else if (name=="opNodeNGet") {document.getElementById(name).innerHTML=data; if (data.indexOf("class='node_ring'")>=0) audioRing.play();}
       else if (name=="opChatNGet") {document.getElementById(name).innerHTML=data; document.getElementById(name).removeAttribute("id");}
-      else if (name=="opNodeNGet" || name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
-        || name=="opChatNSet" || name=="opChatNUAdd" || name=="opChatNUDel") document.getElementById(name).innerHTML = data;
+      else if (name=="opNodeNAdd" || name=="opNodeNfAdd" || name=="opNodeNgAdd" || name=="opChatNfDel" || name=="opChatNgDel"
+        || name=="opChatNSet" || name=="opChatNUAdd" || name=="opChatNUDel") document.getElementById(name).innerHTML=data;
 
       else if (name.indexOf("opBackAll")==0) document.getElementById("ooBack").innerHTML=data;
       else if (name.indexOf("opBackAdd")==0) document.getElementById("vrBack").innerHTML=data;
