@@ -420,7 +420,7 @@
     }
 
     function File(id,oofile) {
-      document.getElementById('vr'+id).innerHTML='上传中…';
+      document.getElementById('vr'+id).innerHTML='上传开始';
       var formData = new FormData();
       formData.append('oofile', $('#'+oofile)[0].files[0]);
       jQuery.ajax({
