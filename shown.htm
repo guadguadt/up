@@ -4,12 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,11,10,9">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
     <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body ontouchstart="">
-    <!-- 055 -->
+    <!-- 056 -->
     <style type="text/css">
         body {margin:0px; background:#ffffff;}
         div.tail {width:100%; height:100%; background:#ffffff; position:fixed; top:0; left:0; z-index:99995; display:none; overflow-y:scroll;}
@@ -440,6 +441,27 @@
         document.getElementById('vr'+id).innerHTML='上传失败';
       });
     }
+
+    function Area(id, d) {
+      try {
+        var a = document.getElementById(id);
+        if (document.all && a.createTextRange && a.caretPos) {
+          var e = a.caretPos;
+          e.text = e.text.charAt(e.text.length - 1) == "" ? d + "" : d
+        } else if (a.setSelectionRange) {
+          var f = a.selectionStart,
+          h = a.selectionEnd,
+          k = a.value.substring(0, f),
+          l = a.value.substring(h);
+          a.value = k + d + l;
+          a.focus();
+          var g = d.length;
+          a.setSelectionRange(f + g, f + g);
+          a.blur();
+        } else a.value += d;
+      } catch {
+      }
+    };
 
     function Test(search) {
       external.Ajax(search);
