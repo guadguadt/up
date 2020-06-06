@@ -341,18 +341,19 @@
           document.getElementById("ooLognkK").value='';
           document.getElementById("ooLognkR").innerHTML='';
         }}
-      else if (search.indexOf("opLogAll&")==0) document.getElementById("ooUserD").innerHTML = data;
-      else if (search.indexOf("opDealAll&")==0) document.getElementById("ooUserD").innerHTML = data;
-      else if (search.indexOf("opUserSet&")==0) document.getElementById('vruser').innerHTML = data;
-      else if (search.indexOf("opViewAdd&")==0) {document.getElementById('vr'+data.substring(4)).innerHTML = data.substring(0,4);
-          if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
-          else if (data.indexOf("发评成功")==0) Load('opViewAll'+data.substring(4));
+      else if (name.indexOf("opLogAll")==0) document.getElementById("ooUserD").innerHTML = data;
+      else if (name.indexOf("opDealAll")==0) document.getElementById("ooUserD").innerHTML = data;
+      else if (name.indexOf("opUserSet")==0) document.getElementById('vruser').innerHTML = data;
+      else if (name.indexOf("opViewAdd")==0) {
+          document.getElementById('vrView').innerHTML = data;
+          if (data.indexOf("发评成功")==0) Load('opViewAll'+name.substring(9));
       }
-      else if (search.indexOf("opBlogAdd&")==0) {document.getElementById('vrblog').innerHTML = data.substring(0,4);
-          if (data.indexOf("请先登入")==0) Load("ogUser.aspx");
-          else if (data.indexOf("发博成功")==0) Load('og博客~time');
+      else if (name.indexOf("opBlogAdd")==0) {
+          document.getElementById('vrblog').innerHTML = data;
+          if (data.indexOf("发博成功")==0) Load('og博客~time');
       }
-      else if (search.indexOf("opQuesAdd&")==0) {document.getElementById('vrques').innerHTML = data.substring(0,4);
+      else if (name.indexOf("opQuesAdd")==0) {
+          document.getElementById('vrques').innerHTML = data;
           if (data.indexOf("发问成功")==0) Load('og问答~time');
       }
       else if (search.indexOf("opHoldSet")==0 || search.indexOf("opKickSet")==0 || search.indexOf("opLikeSet")==0
