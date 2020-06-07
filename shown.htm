@@ -10,7 +10,7 @@
 </head>
 
 <body ontouchstart="">
-    <!-- 056 -->
+    <!-- 057 -->
     <style type="text/css">
         body {margin:0px; background:#ffffff;}
         div.tail {width:100%; height:100%; background:#ffffff; position:fixed; top:0; left:0; z-index:99995; display:none; overflow-y:scroll;}
@@ -152,6 +152,7 @@
     var ooPass="";
     var ooPage="";
     var ooChat="";
+    var ooTime=15;
 
     $(window).scroll(function() {if ($(document).scrollTop()>150) {$('div.navl').css('background','#faf2e1');} else {$('div.navl').css('background','rgba(0,0,0,0)');}});
 
@@ -275,8 +276,12 @@
             document.getElementById("opChatHAdd").innerHTML+=data;
             document.getElementById("opChatHAdd").scrollTop=document.getElementById("opChatHAdd").scrollHeight;
           }
+          ooTime=5;
         }
-        else if (document.getElementById("vrChat")) document.getElementById("vrChat").innerHTML=data;
+        else {
+          if (document.getElementById("vrChat")) document.getElementById("vrChat").innerHTML=data;
+          ooTime=15;
+        }
       }
       else if (name=="opNodeNGet") {
         if (data!="") document.getElementById(name).innerHTML=data;
@@ -417,7 +422,7 @@
     function Chat() {
       if (ooPage=='ooLink') Load('opNodeNGet');
       if (ooPage=='ooLink' && ooChat!='') Load('opChatHAdd&oochat='+ooChat);
-      setTimeout(function(){Chat();},15000);
+      setTimeout(function(){Chat();},ooTime*1000);
     }
 
     function File(id,oofile) {
