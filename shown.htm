@@ -361,10 +361,10 @@
           document.getElementById('vrques').innerHTML = data;
           if (data.indexOf("发问成功")==0) Load('og问答~time');
       }
-      else if (search.indexOf("opHoldSet")==0 || search.indexOf("opKickSet")==0 || search.indexOf("opLikeSet")==0
-          || search.indexOf("opViewAll")==0  || search.indexOf("opViewGet")==0
-          || search.indexOf("opViewHoldSet")==0 || search.indexOf("opViewKickSet")==0
-          || search.indexOf("opDealAdd")==0 || search.indexOf("opCodeGet")==0) {
+      else if (name.indexOf("opHoldSet")==0 || name.indexOf("opKickSet")==0 || name.indexOf("opLikeSet")==0
+          || name.indexOf("opViewAll")==0  || name.indexOf("opViewGet")==0 || name.indexOf("opViewDel")==0
+          || name.indexOf("opViewHoldSet")==0 || name.indexOf("opViewKickSet")==0
+          || name.indexOf("opDealAdd")==0 || name.indexOf("opCodeGet")==0) {
           document.getElementById(id).innerHTML=data;
       }
       else if (id.indexOf("Head")==2) {
