@@ -368,6 +368,9 @@
           || name.indexOf("opDealWechatpayAdd")==0 || name.indexOf("opDealAlipayAdd")==0 || name.indexOf("opCodeGet")==0) {
           document.getElementById(id).innerHTML=data;
       }
+      else if (name.indexOf("op")==0 && document.getElementById(name)) {
+          document.getElementById(name).innerHTML=data;
+      }
       else if (id.indexOf("Head")==2) {
           document.getElementById("ooHead").innerHTML=data;
           showSlides(slideIndex);
