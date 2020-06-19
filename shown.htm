@@ -366,7 +366,7 @@
           || name.indexOf("opViewAll")==0  || name.indexOf("opViewGet")==0 || name.indexOf("opViewDel")==0
           || name.indexOf("opViewHoldSet")==0 || name.indexOf("opViewKickSet")==0
           || name.indexOf("opDealWechatpayAdd")==0 || name.indexOf("opDealAlipayAdd")==0 || name.indexOf("opCodeGet")==0) {
-          document.getElementById(id).innerHTML=data;
+          document.getElementById(name).innerHTML=data;
       }
       else if (name.indexOf("op")==0 && document.getElementById(name)) {
           document.getElementById(name).innerHTML=data;
